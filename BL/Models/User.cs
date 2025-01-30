@@ -5,7 +5,7 @@ namespace BL.Models
     public class User : INotifyPropertyChanged
     {
         private int _id;
-        private string _username;
+        private  string _username;
         private string _password;
         private string? _jobTitle;
 

@@ -45,36 +45,48 @@ namespace App_WPF_007.ViewModels
             {
                 _selectedUser = value;
                 OnPropertyChanged(nameof(SelectedUser));
+                OnPropertyChanged(nameof(Username));
+                OnPropertyChanged(nameof(Password));
+                OnPropertyChanged(nameof(JobTitle));
             }
         }
 
         public string Username
         {
-            get => _username;
+            get => _selectedUser?.Username;
             set
             {
-                _username = value;
-                OnPropertyChanged(nameof(Username));
+                if (_selectedUser != null)
+                {
+                    _selectedUser.Username = value;
+                    OnPropertyChanged(nameof(Username));
+                }
             }
         }
 
         public string Password
         {
-            get => _password;
+            get => _selectedUser?.Password;
             set
             {
-                _password = value;
-                OnPropertyChanged(nameof(Password));
+                if (_selectedUser != null)
+                {
+                    _selectedUser.Password = value;
+                    OnPropertyChanged(nameof(Password));
+                }
             }
         }
 
         public string JobTitle
         {
-            get => _jobTitle;
+            get => _selectedUser?.JobTitle;
             set
             {
-                _jobTitle = value;
-                OnPropertyChanged(nameof(JobTitle));
+                if (_selectedUser != null)
+                {
+                    _selectedUser.JobTitle = value;
+                    OnPropertyChanged(nameof(JobTitle));
+                }
             }
         }
 
