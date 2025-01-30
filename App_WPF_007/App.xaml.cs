@@ -25,6 +25,10 @@ namespace App_WPF_007
                 .CreateLogger();
 
             Log.Information("Application Starting");
+
+            // Register global exception handlers
+            AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler.HandleException;
+            DispatcherUnhandledException += GlobalExceptionHandler.HandleDispatcherException;
         }
 
         protected override void OnExit(ExitEventArgs e)
